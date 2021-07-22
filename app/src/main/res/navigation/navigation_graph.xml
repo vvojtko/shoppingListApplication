@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/navigation_shopping">
+
+    <fragment
+        android:id="@+id/archivedShoppingFragment"
+        android:name="com.example.myapplication.ArchivedShoppingFragment"
+        android:label="@string/archived_shopping_list"
+        tools:layout="@layout/fragment_archived_shopping" >
+        <action
+            android:id="@+id/action_archivedShoppingFragment_to_shoppingListFragment"
+            app:destination="@id/navigation_shopping" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_shopping"
+        android:name="com.example.myapplication.ShoppingListFragment"
+        android:label="@string/shopping_list"
+        tools:layout="@layout/fragment_shopping_list">
+        <action
+            android:id="@+id/action_shoppingListFragment_to_archivedShoppingFragment"
+            app:destination="@id/archivedShoppingFragment" />
+        <action
+            android:id="@+id/action_navigation_shopping_to_shoppingListDetailsFragment"
+            app:destination="@id/navigation_list_details" />
+        <action
+            android:id="@+id/action_navigation_shopping_to_addShoppingListFragment"
+            app:destination="@id/addShoppingListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_list_details"
+        android:name="com.example.myapplication.ShoppingListDetailsFragment"
+        android:label="fragment_shopping_list_details"
+        tools:layout="@layout/fragment_shopping_list_details" >
+        <action
+            android:id="@+id/action_navigation_list_details_to_navigation_shopping"
+            app:destination="@id/navigation_shopping" />
+        <action
+            android:id="@+id/action_navigation_list_details_to_updateItemFragment"
+            app:destination="@id/updateItemFragment" />
+        <argument
+            android:name="int"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateItemFragment"
+        android:name="com.example.myapplication.UpdateItemFragment"
+        android:label="fragment_update_item"
+        tools:layout="@layout/fragment_update_item">
+        <action
+            android:id="@+id/action_updateItemFragment_to_navigation_list_details2"
+            app:destination="@id/navigation_list_details" />
+    </fragment>
+    <fragment
+        android:id="@+id/addShoppingListFragment"
+        android:name="com.example.myapplication.AddShoppingListFragment"
+        android:label="fragment_add_shopping_list"
+        tools:layout="@layout/fragment_add_shopping_list" >
+        <action
+            android:id="@+id/action_addShoppingListFragment_to_navigation_shopping"
+            app:destination="@id/navigation_shopping" />
+    </fragment>
+</navigation>
