@@ -21,9 +21,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    private lateinit var listCardItemBinding: CardItemBinding
-    private lateinit var binding2: ShoppingListFragment
-    private lateinit var shoppingListsList: ArrayList<ShoppingList>
 
     companion object {
         const val TAG = "MainActivity"

@@ -24,7 +24,16 @@ class ShoppingListRepository(application: Application) {
         }
     }
 
+    fun deleteItem(item: Item){
+        listDao.deleteItem(item)
+    }
+
+    fun deleteList(listID: Int){
+        listDao.deleteList(listID)
+    }
     fun getAllLists() = listDao.getAllLists()
+
+    fun updateItem(item: Item) = listDao.updateItem(item)
 
     fun getAllItems(listID: Int) = listDao.getListWithItems(listID)
 }

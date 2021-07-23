@@ -1,7 +1,6 @@
 package com.example.myapplication.data
 
 import android.content.Context
-import androidx.lifecycle.lifecycleScope
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase

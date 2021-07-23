@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.data.entities.Item
 import com.example.myapplication.data.entities.relations.ShoppingListWithItems
@@ -32,7 +33,7 @@ class ShoppingListDetailsAdapter (
         }
 
         fun bindDataSet(item: Item) {
-            imageView.setImageResource(R.drawable.icons_list)
+            imageView.setImageResource(R.drawable.icons_shoppingbasket)
             itemName.text = item.itemName
             itemCount.text = item.itemCount.toString()
         }
@@ -65,10 +66,10 @@ class ShoppingListDetailsAdapter (
 
     override fun onBindViewHolder(holder: ShoppingListDetailsAdapter.ViewHolder, position: Int) {
         holder.bindDataSet(dataSet[position])
-//        holder.itemView.setOnClickListener{
-//            val action = ShoppingListDetailsFragmentDirections.actionNavigationListDetailsToUpdateItemFragment(dataSet[position])
-//          //  holder.imageView.findNavController().navigate(R.id.updateItemFragment)
-//            holder.itemView.findNavController().navigate(action)
-//        }
+        holder.itemView.setOnClickListener{
+            val action = ShoppingListDetailsFragmentDirections.actionNavigationListDetailsToUpdateItemFragment(dataSet[position])
+          //  holder.imageView.findNavController().navigate(R.id.updateItemFragment)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 }

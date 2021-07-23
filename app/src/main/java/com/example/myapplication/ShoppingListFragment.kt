@@ -32,7 +32,7 @@ class ShoppingListFragment : Fragment() {
 
         addData()
         addListsRecyclerView()
-        shoppingListFragmentBinding.fab.setOnClickListener{
+        shoppingListFragmentBinding.fabButton.setOnClickListener{
             findNavController().navigate(R.id.action_navigation_shopping_to_addShoppingListFragment)
         }
         val repository = ShoppingListRepository(requireActivity().application)

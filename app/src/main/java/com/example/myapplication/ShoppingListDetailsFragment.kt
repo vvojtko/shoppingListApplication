@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.annotation.DrawableRes
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -14,6 +15,7 @@ import com.example.myapplication.data.entities.Item
 import com.example.myapplication.data.entities.ShoppingList
 import com.example.myapplication.data.entities.relations.ShoppingListWithItems
 import com.example.myapplication.databinding.FragmentShoppingListBinding
+import com.example.myapplication.databinding.FragmentShoppingListDetailsBinding
 
 
 class ShoppingListDetailsFragment : Fragment() {
@@ -22,7 +24,8 @@ class ShoppingListDetailsFragment : Fragment() {
     private lateinit var adapter: ShoppingListDetailsAdapter
     private val args by navArgs<ShoppingListDetailsFragmentArgs>()
     private val listViewModel: ShoppingListViewModel by viewModels()
-    private lateinit var shoppingListDetailsBinding: FragmentShoppingListBinding
+    private lateinit var shoppingListDetailsBinding: FragmentShoppingListDetailsBinding
+    //private lateinit var shoppingListDetailsBinding2: FragmentShoppingListDetailsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,9 +33,17 @@ class ShoppingListDetailsFragment : Fragment() {
     ): View? {
         handleBackButton()
 
-        shoppingListDetailsBinding = FragmentShoppingListBinding.inflate(inflater, container, false)
+        shoppingListDetailsBinding = FragmentShoppingListDetailsBinding.inflate(inflater, container, false)
+//        shoppingListDetailsBinding.floating.setOnClickListener{
+//            addNewItem()
+//        }
+        shoppingListDetailsBinding.floatingActionButton.setOnClickListener{
+            addNewItem()
+        }
 
-
+        shoppingListDetailsBinding.fabDelete.setOnClickListener{
+            deleteList()
+        }
         addData()
         addListsRecyclerView()
 
@@ -52,6 +63,16 @@ class ShoppingListDetailsFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
+    private fun deleteList(){
+        listViewModel.deleteList(args.int)
+        findNavController().navigateUp()
+    }
+    private fun addNewItem() {
+        val listID = args.int
+        val action = ShoppingListDetailsFragmentDirections.actionNavigationListDetailsToAddNewItemFragment(listID)
+        findNavController().navigate(action)
+    }
+
 
     private fun addData(){
         val listViewModel = listViewModel.getAllItems(args.int)
@@ -63,7 +84,7 @@ class ShoppingListDetailsFragment : Fragment() {
 
 
     private fun addListsRecyclerView() {
-        val listLists = shoppingListDetailsBinding.recyclerView
+        val listLists = shoppingListDetailsBinding.recyclerView2
         listLists.hasFixedSize()
         val linearLayoutManager = LinearLayoutManager(context)
         listLists.layoutManager  = linearLayoutManager

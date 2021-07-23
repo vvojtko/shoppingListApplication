@@ -22,8 +22,8 @@ class AddShoppingListFragment : Fragment() {
         binding = FragmentAddShoppingListBinding.inflate(inflater, container, false)
 
         binding.button2.setOnClickListener {
-            val listName = binding.editListName.toString()
-            val newList = ShoppingList(shoppingListName = listName.toString(), progress = 0)
+            val listName = binding.editListName.text.toString()
+            val newList = ShoppingList(shoppingListName = listName, progress = 0)
             listViewModel.insertList(newList)
             findNavController().navigate(R.id.action_addShoppingListFragment_to_navigation_shopping)
 

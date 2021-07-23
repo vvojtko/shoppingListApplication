@@ -21,11 +21,17 @@ interface ShoppingListDao {
     @Update(onConflict =  OnConflictStrategy.REPLACE)
     fun updateList(list: ShoppingList)
 
-    @Delete
-    fun deleteList(list: ShoppingList)
+    @Update(onConflict =  OnConflictStrategy.REPLACE)
+    fun updateItem(item: Item)
+
+    @Query("Delete FROM shopping_list WHERE listID = :listID")
+    fun deleteList(listID: Int)
 
     @Query("Delete FROM shopping_list")
     fun deleteAll()
+
+    @Delete
+    fun deleteItem(item: Item)
 
     @Transaction
     @Query("SELECT * FROM shopping_list")

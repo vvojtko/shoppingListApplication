@@ -28,6 +28,17 @@ class ShoppingListViewModel(application : Application): AndroidViewModel(applica
         return listsList
     }
 
+    fun updateItem(item: Item){
+        repository.updateItem(item)
+    }
+    fun deleteItem(item: Item){
+        repository.deleteItem(item)
+    }
+
+    fun deleteList(listID: Int){
+        repository.deleteList(listID)
+    }
+
     fun getAllItems(listID: Int): LiveData<MutableList<Item>> {
         return repository.getAllItems(listID)
     }

@@ -44,6 +44,9 @@
         <argument
             android:name="int"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_navigation_list_details_to_addNewItemFragment"
+            app:destination="@id/addNewItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/updateItemFragment"
@@ -53,6 +56,9 @@
         <action
             android:id="@+id/action_updateItemFragment_to_navigation_list_details2"
             app:destination="@id/navigation_list_details" />
+        <argument
+            android:name="item"
+            app:argType="com.example.myapplication.data.entities.Item" />
     </fragment>
     <fragment
         android:id="@+id/addShoppingListFragment"
@@ -62,5 +68,17 @@
         <action
             android:id="@+id/action_addShoppingListFragment_to_navigation_shopping"
             app:destination="@id/navigation_shopping" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewItemFragment"
+        android:name="com.example.myapplication.AddNewItemFragment"
+        android:label="fragment_add_new_item"
+        tools:layout="@layout/fragment_add_new_item" >
+        <action
+            android:id="@+id/action_addNewItemFragment_to_navigation_list_details"
+            app:destination="@id/navigation_list_details" />
+        <argument
+            android:name="listID"
+            app:argType="integer" />
     </fragment>
 </navigation>

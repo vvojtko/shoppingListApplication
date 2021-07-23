@@ -30,7 +30,7 @@ class ShoppingListRecyclerAdapter(
         }
 
         fun bindDataSet(shoppingList: ShoppingList) {
-            imageView.setImageResource(R.drawable.icons_list)
+            imageView.setImageResource(R.drawable.icons_shoppingcart)
             listView.text = shoppingList.shoppingListName
             listProgress.text = shoppingList.progress.toString()
         }
@@ -46,7 +46,7 @@ class ShoppingListRecyclerAdapter(
     ): ShoppingListRecyclerAdapter.ViewHolder {
         val shoppingListBinding = CardShoppingListBinding.inflate(LayoutInflater.from(context), parent, false)
         return ViewHolder(
-            shoppingListBinding.listCard,
+            shoppingListBinding.shoppingListCard,
             shoppingListBinding.shoppingListImage,
             shoppingListBinding.shoppingListName,
             shoppingListBinding.listProgress
