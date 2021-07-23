@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.myapplication.R
+import com.example.myapplication.viewModels.ShoppingListViewModel
 import com.example.myapplication.data.entities.ShoppingList
 import com.example.myapplication.databinding.FragmentAddShoppingListBinding
 

@@ -1,4 +1,4 @@
-package com.example.myapplication.data.entities.relations
+package com.example.myapplication.data
 
 import android.app.Application
 import com.example.myapplication.data.ShoppingAppRoomDatabase

@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,9 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.R
 import com.example.myapplication.data.entities.Item
-import com.example.myapplication.data.entities.relations.ShoppingListWithItems
 import com.example.myapplication.databinding.CardItemBinding
+import com.example.myapplication.fragments.ShoppingListDetailsFragmentDirections
 
 class ShoppingListDetailsAdapter (
         private val context: Context?,
@@ -64,7 +65,7 @@ class ShoppingListDetailsAdapter (
         this.notifyDataSetChanged()
     }
 
-    override fun onBindViewHolder(holder: ShoppingListDetailsAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindDataSet(dataSet[position])
         holder.itemView.setOnClickListener{
             val action = ShoppingListDetailsFragmentDirections.actionNavigationListDetailsToUpdateItemFragment(dataSet[position])

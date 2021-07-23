@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.activities
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import android.graphics.Typeface
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/archivedShoppingFragment"
-        android:name="com.example.myapplication.ArchivedShoppingFragment"
+        android:name="com.example.myapplication.fragments.ArchivedShoppingFragment"
         android:label="@string/archived_shopping_list"
         tools:layout="@layout/fragment_archived_shopping" >
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_shopping"
-        android:name="com.example.myapplication.ShoppingListFragment"
+        android:name="com.example.myapplication.fragments.ShoppingListFragment"
         android:label="@string/shopping_list"
         tools:layout="@layout/fragment_shopping_list">
         <action
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_list_details"
-        android:name="com.example.myapplication.ShoppingListDetailsFragment"
+        android:name="com.example.myapplication.fragments.ShoppingListDetailsFragment"
         android:label="fragment_shopping_list_details"
         tools:layout="@layout/fragment_shopping_list_details" >
         <action
@@ -50,7 +50,7 @@
     </fragment>
     <fragment
         android:id="@+id/updateItemFragment"
-        android:name="com.example.myapplication.UpdateItemFragment"
+        android:name="com.example.myapplication.fragments.UpdateItemFragment"
         android:label="fragment_update_item"
         tools:layout="@layout/fragment_update_item">
         <action
@@ -62,7 +62,7 @@
     </fragment>
     <fragment
         android:id="@+id/addShoppingListFragment"
-        android:name="com.example.myapplication.AddShoppingListFragment"
+        android:name="com.example.myapplication.fragments.AddShoppingListFragment"
         android:label="fragment_add_shopping_list"
         tools:layout="@layout/fragment_add_shopping_list" >
         <action
@@ -71,7 +71,7 @@
     </fragment>
     <fragment
         android:id="@+id/addNewItemFragment"
-        android:name="com.example.myapplication.AddNewItemFragment"
+        android:name="com.example.myapplication.fragments.AddNewItemFragment"
         android:label="fragment_add_new_item"
         tools:layout="@layout/fragment_add_new_item" >
         <action

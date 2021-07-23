@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,8 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.R
 import com.example.myapplication.data.entities.ShoppingList
 import com.example.myapplication.databinding.CardShoppingListBinding
+import com.example.myapplication.fragments.ShoppingListFragmentDirections
 
 class ShoppingListRecyclerAdapter(
     private val context: Context?
@@ -43,7 +45,7 @@ class ShoppingListRecyclerAdapter(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ShoppingListRecyclerAdapter.ViewHolder {
+    ): ViewHolder {
         val shoppingListBinding = CardShoppingListBinding.inflate(LayoutInflater.from(context), parent, false)
         return ViewHolder(
             shoppingListBinding.shoppingListCard,
@@ -59,7 +61,7 @@ class ShoppingListRecyclerAdapter(
         this.notifyDataSetChanged()
     }
 
-    override fun onBindViewHolder(holder: ShoppingListRecyclerAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindDataSet(dataSet[position])
 
         holder.itemView.setOnClickListener{

@@ -1,12 +1,11 @@
-package com.example.myapplication
+package com.example.myapplication.viewModels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.example.myapplication.data.entities.Item
 import com.example.myapplication.data.entities.ShoppingList
-import com.example.myapplication.data.entities.relations.ShoppingListRepository
-import com.example.myapplication.data.entities.relations.ShoppingListWithItems
+import com.example.myapplication.data.ShoppingListRepository
 
 class ShoppingListViewModel(application : Application): AndroidViewModel(application) {
 
