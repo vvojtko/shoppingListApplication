@@ -60,35 +60,27 @@ abstract class ShoppingAppRoomDatabase : RoomDatabase() {
         }
         private suspend fun populatedDatabase(context: Context, instance: ShoppingAppRoomDatabase){
             val lists = listOf(
-                ShoppingList(1,"Warzywa", 0),
-                ShoppingList(2,"Owoce",1),
-                ShoppingList(3, "obiady", 2)
+                ShoppingList(1,"Vegetables", 0),
+                ShoppingList(2,"Fruits",1),
+                ShoppingList(3, "Tuesday's Dinner", 2)
             )
-
             val items = mutableListOf(
-                Item(1,"mieso",10,1),
-                Item(2, "mandarynki",2,1),
-                Item(3,"mieso2",10,2),
-                Item(4, "mandarynki2",2,2),
-                Item(5,"mieso3",10,3),
-                Item(6, "mandarynki3",2,3),
+                Item(1,"Meat",10,1),
+                Item(2, "Oranges",2,1),
+                Item(3,"Meat",10,2),
+                Item(4, "Oranges",2,2),
+                Item(5,"Fish",10,3),
+                Item(6, "Apples",2,3),
             )
-            val item = Item(itemName = "kurwa", itemCount = 10, listID = 1)
-            val item1 = Item(2,"ez",10,2)
-            val item2 = Item(3,"ez",10,3)
-            val item3 = Item(4,"ez",10,1)
-            val item4 = Item(5,"ez",10,2)
-            val item5 = Item(6,"ez",10,3)
             val dao = instance.shoppingListDao()
+            for(i in 0 until items.size){
+                val item = items[i]
+                dao.insertItem(item)
+
+            }
             dao.insertSingleList(lists[0])
             dao.insertSingleList(lists[1])
             dao.insertSingleList(lists[2])
-            dao.insertItem(item5)
-            dao.insertItem(item4)
-            dao.insertItem(item3)
-            dao.insertItem(item1)
-            dao.insertItem(item2)
-            dao.insertItem(item)
 
         }
     }
